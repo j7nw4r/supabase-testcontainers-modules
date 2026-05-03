@@ -11,7 +11,7 @@ documentation = "https://docs.rs/supabase-testcontainers-modules"
 readme = "README.md"
 keywords = ["supabase", "testcontainers", "integration-tests", "containers", "postgresql"]
 categories = ["development-tools::testing", "database"]
-rust-version = "1.75"
+rust-version = "1.85"
 
 [features]
 # Feature flags for optional functionality
@@ -29,18 +29,18 @@ storage = ["const"]                         # Storage service container support
 
 [dependencies]
 # Required external crates for the main code
-testcontainers = { version = "0.26.3", features = ["default"]}              # Core TestContainers library for testing
-testcontainers-modules = { version = "0.14.0", features = ["postgres"] }    # TestContainers with PostgreSQL support
-tokio = { version = "1.48.0" }                                              # Async runtime with all features
-tokio-postgres = "0.7.15"                                                   # PostgreSQL async driver
-anyhow = "1.0.100"                                                           # Error handling library
-thiserror = "2.0.17"                                                        # Custom error derive macros
+testcontainers = { version = "0.27.3", features = ["default"]}              # Core TestContainers library for testing
+testcontainers-modules = { version = "0.15.0", features = ["postgres"] }    # TestContainers with PostgreSQL support
+tokio = { version = "1.52.1" }                                              # Async runtime with all features
+tokio-postgres = "0.7.17"                                                   # PostgreSQL async driver
+anyhow = "1.0.102"                                                           # Error handling library
+thiserror = "2.0.18"                                                        # Custom error derive macros
 
 [dev-dependencies]
 # Dependencies only used for tests
-testcontainers = { version = "0.26.3", features = ["default"] }
-tokio = { version = "1.48.0", features = ["full", "test-util"] }
-reqwest = { version = "0.13.1", features = ["json"] }
+testcontainers = { version = "0.27.3", features = ["default"] }
+tokio = { version = "1.52.1", features = ["full", "test-util"] }
+reqwest = { version = "0.13.3", features = ["json"] }
 serde_json = "1.0"
 
 # Integration tests - gated behind their respective features
