@@ -285,15 +285,15 @@ mod tests {
             }
 
             let mut inner = Vec::with_capacity(BLOCK_SIZE + message.len());
-            for i in 0..BLOCK_SIZE {
-                inner.push(k[i] ^ IPAD);
+            for byte in k.iter().take(BLOCK_SIZE) {
+                inner.push(byte ^ IPAD);
             }
             inner.extend_from_slice(message);
             let inner_hash = sha256(&inner);
 
             let mut outer = Vec::with_capacity(BLOCK_SIZE + 32);
-            for i in 0..BLOCK_SIZE {
-                outer.push(k[i] ^ OPAD);
+            for byte in k.iter().take(BLOCK_SIZE) {
+                outer.push(byte ^ OPAD);
             }
             outer.extend_from_slice(&inner_hash);
             sha256(&outer)
